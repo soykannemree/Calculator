@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: rgb(255, 255, 255);
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+h1{
+    font-size: 4rem;
+    margin-right: 5%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: rgb(255,242,227);
+    background: radial-gradient(circle, rgba(255,242,227,1) 0%, rgba(255,170,121,1) 100%);
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 60%;
+    width: 60%;
+    background: rgb(121,121,121);
+    background: linear-gradient(0deg, rgba(121,121,121,0.9500175070028011) 0%, rgba(36,36,36,0.9556197478991597) 100%);
+    border: 1px solid black;
+    box-shadow: 16px 11px 58px 0px rgba(255, 98, 7, 0.836);
+
+}
+.screen{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 30%;
+    width: 100%;
+    background: rgb(177, 189, 159);
+    border: 1px solid black;
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70%;
+    width: 100%;
+    border: 1px solid black;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 25%;
+    background: rgb(228, 228, 228);
+    color: black;
+    font-weight: bolder;
+    border: 1px dotted rgb(167, 167, 167);
+}
+.row-button{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    height: 25%;
+    width: 100%;
+}
+
+.button:hover {
+	background-color:rgb(180, 180, 180);
+}
+.button:active {
+    transform: translateY(1px);
+}
+
+@media all and (max-width: 800px) {
+    *{
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+    h1{
+        font-size: 2.5rem;
+    }
+    .main{
+        height: 60%;
+        width: 60%;
+        transition: all 2s;
+    }
+}
+@media all and (max-width: 600px) {
+    *{
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    .main{
+        height: 60%;
+        width: 60%;
+        transition: all 2s;
+    }
+}
