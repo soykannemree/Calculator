@@ -12,7 +12,6 @@ var result = 0;
 var start = false;
 
 
-
 //which button clicked
 $( ".button" ).on( "click", function() {
     
@@ -44,10 +43,7 @@ $( ".button" ).on( "click", function() {
                     console.log(operator);
                     console.log(parseInt(firstNum));
                 }
-
-            }
-            
-
+            }          
         } 
         else {
             
@@ -62,9 +58,7 @@ $( ".button" ).on( "click", function() {
                 result = transaction(num1,num2,operator);
                 $("h1").text(result);
             }
-
-
-    
+  
         }
 
     }
@@ -75,8 +69,6 @@ $( ".button" ).on( "click", function() {
         num2=0;
         $("h1").text("0");
     }
-
-
 
 } );
 
@@ -105,16 +97,14 @@ function transaction(num1,num2,operator) {
 function operatorFind(operator){
     $(".button").on("click", function(){
         
-    })
+    });
 }
-
 //all processes how they work
 function add(num1,num2) {
     var result =  num1+num2;    
 }
 function mult(num1,num2) {
-    var result = num1*num2;
-    
+    var result = num1*num2; 
 }
 function min(num1,num2) {
     var result = num1-num2;  
@@ -122,6 +112,3 @@ function min(num1,num2) {
 function div(num1,num2) {
     var result = num1/num2;
 }
-
-
-
