@@ -1,114 +1,67 @@
-var num1 = [];
-var num2 = [];
-var clickedButton = [];
+var num1 = 0;
+var num2 = 0;
 
-var firstNum;
-var secondNum;
+var inputNumber = '0';
 
-var operator;
+var operator = null;
 
 var result = 0;
 
-var start = false;
+//first screen value
+show(result);
 
 
 //which button clicked
 $( ".button" ).on( "click", function() {
-    
-    //to check the character that from the keyboard had taken
-    var clickedButton= (this.id);
+    let clickedButton = $(this).html();
+    console.log(clickedButton)
 
-    if(clickedButton!="AC"){
-       
-        if (start==false) {
-
-            if(operator!="="){
-
-                if(clickedButton!="+" && clickedButton!="x" && clickedButton!="-" && clickedButton!="/"){
-                    num1+=clickedButton;
-                    $("h1").text(num1);
-                }
-                else{
-                    firstNum = parseInt($("h1").innerHTML);
-                    result+=parseInt(firstNum);
-                    start=true;
-                    operator=clickedButton;
-                    $("h1").text("");
-                    if(clickedButton!="+" && clickedButton!="x" && clickedButton!="-" && clickedButton!="/"){
-                        num2+=clickedButton;
-                        $("h1").text(num2);
-                    }
-        
-                    //check
-                    console.log(operator);
-                    console.log(parseInt(firstNum));
-                }
-            }          
-        } 
-        else {
-            
-            $("h1").text("");
-            result+=parseInt(secondNum);
-            if(clickedButton!="="){
-                num2+=clickedButton;
-                $("h1").text(num2);
-            }
-            else
-            {
-                result = transaction(num1,num2,operator);
-                $("h1").text(result);
-            }
-  
-        }
-
+    if (clickedButton ==="AC") {
+        result = 0;
+        inputNumber = '0';
+    }
+    else if (clickedButton==='+' || clickedButton==='-' || clickedButton==='x' || clickedButton==='/') {
+        num1 = parseInt(inputNumber);
+        operator = clickedButton;
+        inputNumber = '';
+    }
+    else if(clickedButton === '='){
+        inputNumber = transaction(num1,inputNumber,operator);
+        operator = null;
     }
     else{
-        start=false;
-        result=0;
-        num1=0;
-        num2=0;
-        $("h1").text("0");
+        if (inputNumber === '0'){
+            inputNumber = clickedButton;
+        } 
+        else{
+            inputNumber = inputNumber + clickedButton;
+        } 
     }
 
-} );
+    show(inputNumber);
 
+});
+
+function show(results) {
+    var results = results.toString();
+    $("h1").html(results);
+}
+  
 
 //All processes
 function transaction(num1,num2,operator) {
+    num1 = parseInt(num1);
+    num2 =parseInt(num2);
     switch (operator) {
         case '/':
-            div(num1,num2);            
-            break;
-         case '*':
-            mult(num1,num2);            
-            break;
+            return num1/num2;         
+         case 'x':
+            return num1*num2;            
         case '-':
-            min(num1,num2);            
-            break;
+            return num1-num2;      
         case '+':
-            add(num1,num2);            
-            break;
+            return num1+num2;            
         default:
             break;
     }
-}
-
-
-function operatorFind(operator){
-    $(".button").on("click", function(){
-        
-    });
-}
-//all processes how they work
-function add(num1,num2) {
-    var result =  num1+num2;    
-}
-function mult(num1,num2) {
-    var result = num1*num2; 
-}
-function min(num1,num2) {
-    var result = num1-num2;  
-}
-function div(num1,num2) {
-    var result = num1/num2;
 }
