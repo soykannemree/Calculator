@@ -91,17 +91,3 @@ h1{
         transition: all 2s;
     }
 }
-@media all and (max-width: 600px) {
-    *{
-        font-size: 1.3rem;
-        font-weight: 500;
-    }
-    h1{
-        font-size: 2rem;
-    }
-    .main{
-        height: 60%;
-        width: 60%;
-        transition: all 2s;
-    }
-}
